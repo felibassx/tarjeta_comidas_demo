@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
           // leading: Text('data'),
           backgroundColor: Color.fromRGBO(0, 0, 0, 0.9),
           title: Text(
-            'Recetas',
+            'Recetas Demo',
             style: TextStyle(
                 fontWeight: FontWeight.bold, color: Colors.white, fontSize: 30),
             textAlign: TextAlign.center,
