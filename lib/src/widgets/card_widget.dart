@@ -17,25 +17,17 @@ class _CardWidgetState extends State<CardWidget> {
 
   List<String> users = ["Felibass", "Fluttero", "Dartero"];
   List<String> status = ["unlike", "like", "like"];
-  List<String> uppertitles = [
-    "9 Abril, 11:30 AM",
-    "10 Abril, 1:00 PM",
-    "13 Abril, 1:00 PM"
-  ];
   List<String> titles = ["Casuela Chilena", "Empanadas de Pino", "Humitas"];
-  List<String> subtitles = [
-    "1er lugar en el ranking",
-    "4to lugar en el ranking",
-    "3er lugar en el ranking"
-  ];
+  List<String> subtitles = ["Baja", "Alta", "Media"];
   // data de ejemplo
 
+  // Solo a modo de ejemplo, se crea la lista de tarjetas
   List<Widget> menu() {
     List<Widget> menuList = new List();
 
     for (int i = 0; i < 3; i++) {
       var menuItem = myCard('https://i.pravatar.cc/400', images[i], users[i],
-          status[i], uppertitles[i], titles[i], subtitles[i]);
+          status[i], titles[i], subtitles[i]);
 
       menuList.add(menuItem);
     }
@@ -44,8 +36,7 @@ class _CardWidgetState extends State<CardWidget> {
   }
 
   Widget myCard(String avatarImg, String image, String user, String status,
-      String uppertitle, String title, String subtitle) {
-        
+      String title, String subtitle) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 25),
       child: Container(
@@ -90,7 +81,10 @@ class _CardWidgetState extends State<CardWidget> {
                     padding: EdgeInsets.only(left: 10.0),
                     child: Text(
                       user,
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                 ],
@@ -108,31 +102,36 @@ class _CardWidgetState extends State<CardWidget> {
               top: 245.0,
               left: 30.0,
               child: Text(
-                uppertitle,
+                'Nombre del plato',
                 style: TextStyle(color: Colors.white, fontSize: 18),
               ),
             ),
             Positioned(
-              top: 270.0,
+              top: 260.0,
               left: 30.0,
-              child: Text(
-                title,
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+              child: ButtonTheme(
+                buttonColor: Colors.transparent,
+                child: RaisedButton(
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                        fontSize: 30.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    onPressed: () {}),
               ),
             ),
             Positioned(
               top: 305.0,
               left: 30.0,
               child: Text(
-                subtitle,
+                'Dificultad: ' + subtitle,
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
-                    fontWeight: FontWeight.w300),
+                    fontWeight: FontWeight.bold),
               ),
             ),
           ],
@@ -145,22 +144,28 @@ class _CardWidgetState extends State<CardWidget> {
   Widget build(BuildContext context) {
     Size sizeScreen = MediaQuery.of(context).size;
 
-    return SizedBox(
-      child: Padding(
-        padding: EdgeInsets.only(left: 25.0, right: 25),
-        child: Stack(
-          children: <Widget>[
-            Padding(
-                padding: EdgeInsets.only(top: 25, left: 25),
-                child: Container(
-                  height: sizeScreen.height * 0.80,
-                  child: ListView(
-                    scrollDirection: Axis.vertical,
-                    children: menu(),
-                  ),
-                ))
-          ],
-        ),
+    return SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          SizedBox(
+            child: Padding(
+              padding: EdgeInsets.only(left: 25.0, right: 25),
+              child: Stack(
+                children: <Widget>[
+                  Padding(
+                      padding: EdgeInsets.only(top: 10, left: 8),
+                      child: Container(
+                        height: sizeScreen.height * 0.80,
+                        child: ListView(
+                          scrollDirection: Axis.vertical,
+                          children: menu(),
+                        ),
+                      ))
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
