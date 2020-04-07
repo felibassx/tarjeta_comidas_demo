@@ -10,14 +10,14 @@ class CardWidget extends StatefulWidget {
 class _CardWidgetState extends State<CardWidget> {
   // data de ejemplo
   List<String> images = [
-    'assets/images/casuela.jpg',
+    'assets/images/cazuela.jpg',
     'assets/images/empanadas.jpg',
     'assets/images/humitas.jpg'
   ];
 
   List<String> users = ["Felibass", "Fluttero", "Dartero"];
   List<String> status = ["unlike", "like", "like"];
-  List<String> titles = ["Casuela Chilena", "Empanadas de Pino", "Humitas"];
+  List<String> titles = ["Cazuela Chilena", "Empanadas de Pino", "Humitas"];
   List<String> subtitles = ["Baja", "Alta", "Media"];
   // data de ejemplo
 

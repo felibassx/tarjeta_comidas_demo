@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tarjeta_comidas_demo/src/widgets/card_widget.dart';
+import 'package:tarjeta_comidas_demo/src/widgets/drawer_menu_widget.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -25,6 +26,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         body: CardWidget(),
+        drawer: DrawerMenuWidget(),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
         floatingActionButton: _createActionButton(),
         bottomNavigationBar: _createAppBar(),
